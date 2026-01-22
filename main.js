@@ -1,8 +1,6 @@
-import './style.css';
-
 document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.querySelectorAll('.nav-link');
-  const pages = document.querySelectorAll('.page');
+  const contactForm = document.getElementById('contactForm');
 
   function navigateToPage(targetPage) {
     const currentPage = document.querySelector('.page.active');
@@ -41,24 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  window.addEventListener('popstate', (e) => {
+  window.addEventListener('popstate', () => {
     const hash = window.location.hash.substring(1);
     const targetPage = hash || 'about';
     navigateToPage(targetPage);
   });
 
-  const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
       e.preventDefault();
 
-      const formData = {
-        name: document.getElementById('name').value,
-        email: document.getElementById('email').value,
-        message: document.getElementById('message').value
-      };
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
 
-      alert(`Thank you, ${formData.name}! Your message has been received. I'll get back to you at ${formData.email} soon!`);
+      alert(`Thank you, ${name}! Your message has been received. I'll get back to you at ${email} soon!`);
 
       contactForm.reset();
     });
