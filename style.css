@@ -300,6 +300,12 @@ body {
   justify-content: center;
 }
 
+video{
+  max-height: 85%;
+  max-width: fit-content;
+  border-radius: 15px;
+}
+
 .project-placeholder {
   font-size: 4rem;
 }
